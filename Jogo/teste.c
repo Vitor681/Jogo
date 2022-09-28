@@ -8,12 +8,14 @@ int main (void) {
 
     srand (time(NULL));
 
-    for (i = 0; i < 10; i++)
+    for (i = 0; i < 1; i++)
         num[i] = rand();
 
-    printf("%d\n\n", num);
+     printf("\n\n");
+    for (i = 0; i < 1; i++)
+        printf("%d ", num[i]);
+    printf ("\n\n");
 
 
-
-
+    return 0;
 }
