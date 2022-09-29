@@ -2,35 +2,36 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main (void) {
-    int i;
-    int num2 [10];
-    int numero;
+int main (void){
 
-    printf("\nTente advinhar o numero com menos tentativas possiveis\n");
-    srand (time(NULL));
+    int num, sorteio, tentativa=0;
+    char c;
 
-    for (i = 0; i < 10; i++)
-    num2[i] = rand();
-    
-    printf ("%d\n", &num2); /*temporario*/
-    
+    srand(time(NULL));
+    sorteio = rand() % 1000;
 
-    printf ("digite o numero\n");
-    scanf ("%d", &numero);
+    do{
+        tentativa++;
+        printf("\ntentativa numero %d", tentativa);
+        printf("\ntente advinhar o numero: ");
+        scanf("%d", &num);
 
-    if( numero == num2) {
-        printf ("parabens voce acertou");
-    }
-    else{
-        if(numero < num2) {
-            printf("o numero que voce digitou eh menor");
+        if(num==sorteio){
+            printf("acertou!");
+            break;
         }
-        else {
-            printf ("o numero que voce digitou eh maior");
-        }
-    }
-    return 0;
+                if(num<sorteio){
+                    printf("numero menor do que o sortiado");
+                }
+                else{
+                    printf("numero maior do que o sortiado");
+                }
+            printf ("\ntente de novo? (S/N)");
+            fflush(stdin);
+            scanf ("%c", &c);
+        }while(c=='s' || c=='S');
+        
 
-
+        return 0;
     }
+   
